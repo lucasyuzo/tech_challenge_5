@@ -8,35 +8,35 @@ import java.util.List;
 @Service
 public class ProductService {
 
-    private final ProductRepository productRepository;
+    private final ProductRepository repository;
 
-    public ProductService(ProductRepository productRepository) {
-        this.productRepository = productRepository;
+    public ProductService(ProductRepository repository) {
+        this.repository = repository;
     }
 
     public Product create(Product product) {
-        return productRepository.save(product);
+        return repository.save(product);
     }
 
     public List<Product> readAll() {
-        return productRepository.findAll();
+        return repository.findAll();
     }
 
     public Product readById(Integer id) {
-        return productRepository.findById(id).orElseThrow(EntityNotFoundException::new);
+        return repository.findById(id).orElseThrow(EntityNotFoundException::new);
     }
 
     public Product update(Product product) {
-        Product currentProduct = productRepository.findById(product.getId()).orElseThrow(EntityNotFoundException::new);
+        Product currentProduct = repository.findById(product.getId()).orElseThrow(EntityNotFoundException::new);
         currentProduct.setName(product.getName());
         currentProduct.setPrice(product.getPrice());
         currentProduct.setQuantity(product.getQuantity());
-        return productRepository.save(currentProduct);
+        return repository.save(currentProduct);
     }
 
     public void deleteById(Integer id) {
-        Product product = productRepository.findById(id).orElseThrow(EntityNotFoundException::new);
-        productRepository.deleteById(product.getId());
+        Product product = repository.findById(id).orElseThrow(EntityNotFoundException::new);
+        repository.deleteById(product.getId());
     }
 
 }

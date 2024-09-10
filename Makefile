@@ -2,7 +2,7 @@ build-product:
 	cd product; mvn compile; mvn package; docker build -t product_app:latest -f ./Dockerfile .
 
 build-cart:
-	cd cart mvn compile; mvn package; docker build -t cart_app:latest -f ./Dockerfile .
+	cd cart; mvn compile; mvn package; docker build -t cart_app:latest -f ./Dockerfile .
 
 build-payment:
 	cd payment; mvn compile; mvn package; docker build -t payment_app:latest -f ./Dockerfile .
