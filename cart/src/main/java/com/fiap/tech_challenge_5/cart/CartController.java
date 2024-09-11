@@ -41,13 +41,13 @@ public class CartController {
     }
 
     @PutMapping("/add-item-quantity/{productId}/{cartId}")
-    public ResponseEntity<Cart> addItemQuantity(@PathVariable Integer productId, @PathVariable UUID cartId) {
+    public ResponseEntity<Cart> addItemQuantity(@PathVariable UUID productId, @PathVariable UUID cartId) {
         Cart updatedCart = service.addItemQuantity(productId, cartId);
         return ResponseEntity.ok(updatedCart);
     }
 
     @PutMapping("/remove-item-quantity/{productId}/{cartId}")
-    public ResponseEntity<Cart> removeItem(@PathVariable Integer productId, @PathVariable UUID cartId) {
+    public ResponseEntity<Cart> removeItem(@PathVariable UUID productId, @PathVariable UUID cartId) {
         Cart updatedCart = service.removeItem(productId, cartId);
         return ResponseEntity.ok(updatedCart);
     }

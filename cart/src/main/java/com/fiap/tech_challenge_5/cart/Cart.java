@@ -14,7 +14,7 @@ public class Cart {
     @GeneratedValue(strategy = GenerationType.UUID)
     private UUID id;
 
-    private Integer userId;
+    private UUID userId;
 
     @OneToMany(mappedBy = "cart", cascade = CascadeType.ALL, fetch = FetchType.EAGER, orphanRemoval = true)
     @JsonManagedReference
@@ -22,7 +22,7 @@ public class Cart {
 
     public Cart() { }
 
-    public Cart(UUID id, Integer userId, List<Item> items) {
+    public Cart(UUID id, UUID userId, List<Item> items) {
         this.id = id;
         this.userId = userId;
         this.items = items;
@@ -36,11 +36,11 @@ public class Cart {
         this.id = id;
     }
 
-    public Integer getUserId() {
+    public UUID getUserId() {
         return userId;
     }
 
-    public void setUserId(Integer userId) {
+    public void setUserId(UUID userId) {
         this.userId = userId;
     }
 
@@ -52,7 +52,7 @@ public class Cart {
         this.items = items;
     }
 
-    public void addItem(Integer productId) {
+    public void addItem(UUID productId) {
         items.forEach(cartItem -> {
             if (cartItem.getProductId().equals(productId)) {
                 cartItem.setQuantity(cartItem.getQuantity() + 1);
@@ -60,7 +60,7 @@ public class Cart {
         });
     }
 
-    public void removeItem(Integer productId) {
+    public void removeItem(UUID productId) {
         AtomicReference<Boolean> toRemove = new AtomicReference<>(false);
         items.forEach(cartItem -> {
             if (cartItem.getProductId().equals(productId)) {
