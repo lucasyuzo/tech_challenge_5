@@ -1,4 +1,4 @@
-package com.fiap.tech_challenge_5.cart;
+package com.fiap.tech_challenge_5.payment.order;
 
 import com.fasterxml.jackson.annotation.JsonBackReference;
 import jakarta.persistence.*;
@@ -18,18 +18,18 @@ public class Item {
     private Double price;
 
     @ManyToOne
-    @JoinColumn(name = "cart_id", nullable = false)
+    @JoinColumn(name = "order_id", nullable = false)
     @JsonBackReference
-    private Cart cart;
+    private Order order;
 
     public Item() { }
 
-    public Item(UUID id, UUID productId, Integer quantity, Double price, Cart cart) {
+    public Item(UUID id, UUID productId, Integer quantity, Double price, Order order) {
         this.id = id;
         this.productId = productId;
         this.quantity = quantity;
         this.price = price;
-        this.cart = cart;
+        this.order = order;
     }
 
     public UUID getId() {
@@ -63,4 +63,13 @@ public class Item {
     public void setPrice(Double price) {
         this.price = price;
     }
+
+    public Order getOrder() {
+        return order;
+    }
+
+    public void setOrder(Order order) {
+        this.order = order;
+    }
+
 }

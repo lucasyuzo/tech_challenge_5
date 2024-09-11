@@ -34,13 +34,13 @@ public class CartService {
         return repository.save(cart);
     }
 
-    public Cart addItemQuantity(Integer productId, UUID cartId) {
+    public Cart addItemQuantity(UUID productId, UUID cartId) {
         Cart cart = repository.findById(cartId).orElseThrow(EntityNotFoundException::new);
         cart.addItem(productId);
         return repository.save(cart);
     }
 
-    public Cart removeItem(Integer productId, UUID cartId) {
+    public Cart removeItem(UUID productId, UUID cartId) {
         Cart cart = repository.findById(cartId).orElseThrow(EntityNotFoundException::new);
         cart.removeItem(productId);
         return repository.save(cart);

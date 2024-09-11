@@ -4,6 +4,7 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
+import java.util.UUID;
 
 @RestController
 @RequestMapping("/product")
@@ -27,8 +28,8 @@ public class ProductController {
         return ResponseEntity.ok(products);
     }
 
-    @GetMapping("/read-by-id")
-    public ResponseEntity<Product> readById(@RequestParam Integer id) {
+    @GetMapping("/read-by-id/{id}")
+    public ResponseEntity<Product> readById(@PathVariable UUID id) {
         Product product = productService.readById(id);
         return ResponseEntity.ok(product);
     }
@@ -39,8 +40,8 @@ public class ProductController {
         return ResponseEntity.ok(updatedProduct);
     }
 
-    @DeleteMapping
-    public ResponseEntity<String> deleteProduct(@RequestParam Integer id) {
+    @DeleteMapping("/{id}")
+    public ResponseEntity<String> deleteProduct(@PathVariable UUID id) {
         productService.deleteById(id);
         return ResponseEntity.ok("Deleted product with id " + id);
     }

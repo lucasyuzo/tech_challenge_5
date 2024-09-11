@@ -1,4 +1,4 @@
-package com.fiap.tech_challenge_5.product;
+package com.fiap.tech_challenge_5.payment.order;
 
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
@@ -6,4 +6,4 @@ import org.springframework.stereotype.Repository;
 import java.util.UUID;
 
 @Repository
-public interface ProductRepository extends JpaRepository<Product, UUID> { }
+public interface OrderRepository extends JpaRepository<Order, UUID> { }

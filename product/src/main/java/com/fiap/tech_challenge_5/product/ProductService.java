@@ -4,6 +4,7 @@ import jakarta.persistence.EntityNotFoundException;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
+import java.util.UUID;
 
 @Service
 public class ProductService {
@@ -22,7 +23,7 @@ public class ProductService {
         return repository.findAll();
     }
 
-    public Product readById(Integer id) {
+    public Product readById(UUID id) {
         return repository.findById(id).orElseThrow(EntityNotFoundException::new);
     }
 
@@ -34,7 +35,7 @@ public class ProductService {
         return repository.save(currentProduct);
     }
 
-    public void deleteById(Integer id) {
+    public void deleteById(UUID id) {
         Product product = repository.findById(id).orElseThrow(EntityNotFoundException::new);
         repository.deleteById(product.getId());
     }
