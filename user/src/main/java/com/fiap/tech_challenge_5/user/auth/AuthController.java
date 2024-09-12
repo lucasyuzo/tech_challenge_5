@@ -3,7 +3,6 @@ package com.fiap.tech_challenge_5.user.auth;
 import com.fiap.tech_challenge_5.user.auth.security.LoginResponseDTO;
 import com.fiap.tech_challenge_5.user.user.User;
 import jakarta.validation.Valid;
-import org.springframework.http.HttpHeaders;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
@@ -31,11 +30,20 @@ public class AuthController {
         return ResponseEntity.badRequest().build();
     }
 
-    @PostMapping("/validate-token/{userId}/{token}")
-    public ResponseEntity<Void> validateToken(@PathVariable UUID userId, @PathVariable String token) {
+    @GetMapping("/validate-token/{token}/{userId}")
+    public ResponseEntity<String> validateToken(@PathVariable String token, @PathVariable UUID userId) {
         var authentication = authService.validateToken(token, userId);
         if (authentication) {
-            return ResponseEntity.ok().build();
+            return ResponseEntity.ok("Valid token");
+        }
+        return ResponseEntity.status(HttpStatus.UNAUTHORIZED).build();
+    }
+
+    @GetMapping("/validate-token-for-admin/{token}/{userId}")
+    public ResponseEntity<String> validateTokenForAdmin(@PathVariable String token, @PathVariable UUID userId) {
+        var authentication = authService.validateTokenForAdmin(token, userId);
+        if (authentication) {
+            return ResponseEntity.ok("Valid token");
         }
         return ResponseEntity.status(HttpStatus.UNAUTHORIZED).build();
     }
