@@ -13,7 +13,18 @@
 					"name": "Cart - Create",
 					"request": {
 						"method": "POST",
-						"header": [],
+						"header": [
+							{
+								"key": "Access-Token",
+								"value": "",
+								"type": "text"
+							},
+							{
+								"key": "User-Id",
+								"value": "cda0bb5f-7d3e-4411-ad15-00533ccd9555",
+								"type": "text"
+							}
+						],
 						"body": {
 							"mode": "raw",
 							"raw": "{\n    \"userId\": \"48c325a7-8dc2-4d48-a45f-52e58868f946\",\n    \"items\": [\n        {\n            \"productId\": \"c4697228-b76b-4603-a73d-ac2abff19aaf\",\n            \"quantity\": 3,\n            \"price\": 79.99\n        }\n    ]\n}",
@@ -31,7 +42,18 @@
 					"name": "Cart - Read All",
 					"request": {
 						"method": "GET",
-						"header": [],
+						"header": [
+							{
+								"key": "Access-Token",
+								"value": "",
+								"type": "text"
+							},
+							{
+								"key": "User-Id",
+								"value": "cda0bb5f-7d3e-4411-ad15-00533ccd9555",
+								"type": "text"
+							}
+						],
 						"url": "http://localhost:8081/cart/read-all"
 					},
 					"response": []
@@ -41,7 +63,29 @@
 					"request": {
 						"method": "GET",
 						"header": [],
-						"url": "http://localhost:8081/cart/read-by-id/2012db3a-1ad7-4446-bbac-844977e8649b"
+						"url": {
+							"raw": "http://localhost:8081/cart/read-by-id/2012db3a-1ad7-4446-bbac-844977e8649b?Access-Token=&User-Id=cda0bb5f-7d3e-4411-ad15-00533ccd9555",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8081",
+							"path": [
+								"cart",
+								"read-by-id",
+								"2012db3a-1ad7-4446-bbac-844977e8649b"
+							],
+							"query": [
+								{
+									"key": "Access-Token",
+									"value": ""
+								},
+								{
+									"key": "User-Id",
+									"value": "cda0bb5f-7d3e-4411-ad15-00533ccd9555"
+								}
+							]
+						}
 					},
 					"response": []
 				},
@@ -67,7 +111,18 @@
 					"name": "Cart - Add Item Quantity",
 					"request": {
 						"method": "PUT",
-						"header": [],
+						"header": [
+							{
+								"key": "Access-Token",
+								"value": "",
+								"type": "text"
+							},
+							{
+								"key": "User-Id",
+								"value": "cda0bb5f-7d3e-4411-ad15-00533ccd9555",
+								"type": "text"
+							}
+						],
 						"body": {
 							"mode": "raw",
 							"raw": "",
@@ -95,7 +150,30 @@
 								}
 							}
 						},
-						"url": "http://localhost:8081/cart/remove-item-quantity/5c6fb1bc-141c-4893-897b-e3db07c8ac63/2012db3a-1ad7-4446-bbac-844977e8649b"
+						"url": {
+							"raw": "http://localhost:8081/cart/remove-item-quantity/5c6fb1bc-141c-4893-897b-e3db07c8ac63/2012db3a-1ad7-4446-bbac-844977e8649b?Access-Token&User-Id=cda0bb5f-7d3e-4411-ad15-00533ccd9555",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8081",
+							"path": [
+								"cart",
+								"remove-item-quantity",
+								"5c6fb1bc-141c-4893-897b-e3db07c8ac63",
+								"2012db3a-1ad7-4446-bbac-844977e8649b"
+							],
+							"query": [
+								{
+									"key": "Access-Token",
+									"value": null
+								},
+								{
+									"key": "User-Id",
+									"value": "cda0bb5f-7d3e-4411-ad15-00533ccd9555"
+								}
+							]
+						}
 					},
 					"response": []
 				},
@@ -113,7 +191,29 @@
 								}
 							}
 						},
-						"url": "http://localhost:8081/cart/remove-all/2012db3a-1ad7-4446-bbac-844977e8649b"
+						"url": {
+							"raw": "http://localhost:8081/cart/remove-all/2012db3a-1ad7-4446-bbac-844977e8649b?Access-Token&User-Id=cda0bb5f-7d3e-4411-ad15-00533ccd9555",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8081",
+							"path": [
+								"cart",
+								"remove-all",
+								"2012db3a-1ad7-4446-bbac-844977e8649b"
+							],
+							"query": [
+								{
+									"key": "Access-Token",
+									"value": null
+								},
+								{
+									"key": "User-Id",
+									"value": "cda0bb5f-7d3e-4411-ad15-00533ccd9555"
+								}
+							]
+						}
 					},
 					"response": []
 				}
@@ -123,11 +223,129 @@
 			"name": "Product",
 			"item": [
 				{
+					"name": "Product - Create",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Access-Token",
+								"value": "eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJjZGEwYmI1Zi03ZDNlLTQ0MTEtYWQxNS0wMDUzM2NjZDk1NTUiLCJpYXQiOjE3MjYxNjU2ODIsImV4cCI6MTcyNjIwMTY4Mn0.52H2R6WATixSrz5sV6FkDJJJ3DSxblZ-CN0t1LUp72M",
+								"type": "text"
+							},
+							{
+								"key": "User-Id",
+								"value": "cda0bb5f-7d3e-4411-ad15-00533ccd9555",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "    {\n        \"name\": \"Garrafa Termica\",\n        \"price\": 123.49,\n        \"quantity\": 50\n    }",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": "http://localhost:8080/product"
+					},
+					"response": []
+				},
+				{
 					"name": "Product - Read All",
 					"request": {
 						"method": "GET",
-						"header": [],
+						"header": [
+							{
+								"key": "Access-Token",
+								"value": "eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJjZGEwYmI1Zi03ZDNlLTQ0MTEtYWQxNS0wMDUzM2NjZDk1NTUiLCJpYXQiOjE3MjYxNjYzNzksImV4cCI6MTcyNjIwMjM3OX0.fd-nZkIOIBp4kgklWvrT3G2d9UDAd2GAjIpd1Hia50s",
+								"type": "text"
+							},
+							{
+								"key": "User-Id",
+								"value": "cda0bb5f-7d3e-4411-ad15-00533ccd9555",
+								"type": "text"
+							}
+						],
 						"url": "http://localhost:8080/product/read-all"
+					},
+					"response": []
+				},
+				{
+					"name": "Product - Read By Id",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Access-Token",
+								"value": "eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJjZGEwYmI1Zi03ZDNlLTQ0MTEtYWQxNS0wMDUzM2NjZDk1NTUiLCJpYXQiOjE3MjYxNjU2ODIsImV4cCI6MTcyNjIwMTY4Mn0.52H2R6WATixSrz5sV6FkDJJJ3DSxblZ-CN0t1LUp72M",
+								"type": "text"
+							},
+							{
+								"key": "User-Id",
+								"value": "cda0bb5f-7d3e-4411-ad15-00533ccd9555",
+								"type": "text"
+							}
+						],
+						"url": "http://localhost:8080/product/read-by-id/d463aead-1f15-43cf-8ba5-d8c6855cea46"
+					},
+					"response": []
+				},
+				{
+					"name": "Product - Update",
+					"request": {
+						"method": "PUT",
+						"header": [
+							{
+								"key": "Access-Token",
+								"value": "eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJjZGEwYmI1Zi03ZDNlLTQ0MTEtYWQxNS0wMDUzM2NjZDk1NTUiLCJpYXQiOjE3MjYxNjU2ODIsImV4cCI6MTcyNjIwMTY4Mn0.52H2R6WATixSrz5sV6FkDJJJ3DSxblZ-CN0t1LUp72M",
+								"type": "text"
+							},
+							{
+								"key": "User-Id",
+								"value": "cda0bb5f-7d3e-4411-ad15-00533ccd9555",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"id\": \"d463aead-1f15-43cf-8ba5-d8c6855cea46\",\n    \"name\": \"Livro - Senhor dos Aneis\",\n    \"price\": 75.99,\n    \"quantity\": 10\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": "http://localhost:8080/product"
+					},
+					"response": []
+				},
+				{
+					"name": "Product - Update Copy",
+					"request": {
+						"method": "DELETE",
+						"header": [
+							{
+								"key": "Access-Token",
+								"value": "eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJjZGEwYmI1Zi03ZDNlLTQ0MTEtYWQxNS0wMDUzM2NjZDk1NTUiLCJpYXQiOjE3MjYxNjU2ODIsImV4cCI6MTcyNjIwMTY4Mn0.52H2R6WATixSrz5sV6FkDJJJ3DSxblZ-CN0t1LUp72M",
+								"type": "text"
+							},
+							{
+								"key": "User-Id",
+								"value": "cda0bb5f-7d3e-4411-ad15-00533ccd9555",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"id\": \"d463aead-1f15-43cf-8ba5-d8c6855cea46\",\n    \"name\": \"Livro - Senhor dos Aneis\",\n    \"price\": 75.99,\n    \"quantity\": 10\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": "http://localhost:8080/product/d463aead-1f15-43cf-8ba5-d8c6855cea46"
 					},
 					"response": []
 				}
@@ -140,7 +358,18 @@
 					"name": "Payment - Create",
 					"request": {
 						"method": "POST",
-						"header": [],
+						"header": [
+							{
+								"key": "Access-Token",
+								"value": "",
+								"type": "text"
+							},
+							{
+								"key": "User-Id",
+								"value": "cda0bb5f-7d3e-4411-ad15-00533ccd9555",
+								"type": "text"
+							}
+						],
 						"body": {
 							"mode": "raw",
 							"raw": "{\n    \"method\": \"DEBIT\",\n    \"orderId\": \"08447b8f-18f2-4fab-907b-b6f3e74051e9\",\n    \"cardName\": \"Pedro Sampaio\",\n    \"cardNumber\": \"5678002\"\n}",
@@ -158,7 +387,18 @@
 					"name": "Payment - Read All",
 					"request": {
 						"method": "GET",
-						"header": [],
+						"header": [
+							{
+								"key": "Access-Token",
+								"value": "",
+								"type": "text"
+							},
+							{
+								"key": "User-Id",
+								"value": "cda0bb5f-7d3e-4411-ad15-00533ccd9555",
+								"type": "text"
+							}
+						],
 						"url": "http://localhost:8082/payment/read-all"
 					},
 					"response": []
@@ -167,7 +407,18 @@
 					"name": "Payment - Read By Id",
 					"request": {
 						"method": "GET",
-						"header": [],
+						"header": [
+							{
+								"key": "Access-Token",
+								"value": "",
+								"type": "text"
+							},
+							{
+								"key": "User-Id",
+								"value": "cda0bb5f-7d3e-4411-ad15-00533ccd9555",
+								"type": "text"
+							}
+						],
 						"url": "http://localhost:8082/payment/read-by-id/45ff08b5-4ebe-47f1-8ac7-fc1ce3d0b447"
 					},
 					"response": []
@@ -176,7 +427,18 @@
 					"name": "Payment - Delete By Id",
 					"request": {
 						"method": "DELETE",
-						"header": [],
+						"header": [
+							{
+								"key": "Access-Token",
+								"value": "",
+								"type": "text"
+							},
+							{
+								"key": "User-Id",
+								"value": "cda0bb5f-7d3e-4411-ad15-00533ccd9555",
+								"type": "text"
+							}
+						],
 						"body": {
 							"mode": "raw",
 							"raw": "{\n    \"method\": \"DEBIT\",\n    \"orderId\": \"08447b8f-18f2-4fab-907b-b6f3e74051e9\",\n    \"cardName\": \"Pedro Sampaio\",\n    \"cardNumber\": \"5678002\"\n}",
@@ -194,7 +456,18 @@
 					"name": "Order - Create",
 					"request": {
 						"method": "POST",
-						"header": [],
+						"header": [
+							{
+								"key": "Access-Token",
+								"value": "",
+								"type": "text"
+							},
+							{
+								"key": "User-Id",
+								"value": "cda0bb5f-7d3e-4411-ad15-00533ccd9555",
+								"type": "text"
+							}
+						],
 						"body": {
 							"mode": "raw",
 							"raw": "{\n    \"userId\": \"cda0bb5f-7d3e-4411-ad15-00533ccd9555\",\n    \"itemsDTO\": [\n        {\n            \"productId\": \"e4f3b794-f9e4-4a7b-b3c3-f72d63200335\",\n            \"quantity\": 3,\n            \"price\": 4.99\n        }\n    ]\n}",
@@ -212,7 +485,18 @@
 					"name": "Order - Read All",
 					"request": {
 						"method": "GET",
-						"header": [],
+						"header": [
+							{
+								"key": "Access-Token",
+								"value": "",
+								"type": "text"
+							},
+							{
+								"key": "User-Id",
+								"value": "cda0bb5f-7d3e-4411-ad15-00533ccd9555",
+								"type": "text"
+							}
+						],
 						"url": "http://localhost:8082/order/read-all"
 					},
 					"response": []
@@ -221,7 +505,18 @@
 					"name": "Order - Read By Id",
 					"request": {
 						"method": "GET",
-						"header": [],
+						"header": [
+							{
+								"key": "Access-Token",
+								"value": "",
+								"type": "text"
+							},
+							{
+								"key": "User-Id",
+								"value": "cda0bb5f-7d3e-4411-ad15-00533ccd9555",
+								"type": "text"
+							}
+						],
 						"url": "http://localhost:8082/order/read-by-id/ad9c60f6-0f20-4806-95aa-51a8f2f05753"
 					},
 					"response": []
@@ -230,7 +525,18 @@
 					"name": "Order - Update Order Status",
 					"request": {
 						"method": "PUT",
-						"header": [],
+						"header": [
+							{
+								"key": "Access-Token",
+								"value": "",
+								"type": "text"
+							},
+							{
+								"key": "User-Id",
+								"value": "cda0bb5f-7d3e-4411-ad15-00533ccd9555",
+								"type": "text"
+							}
+						],
 						"body": {
 							"mode": "raw",
 							"raw": "",
@@ -248,7 +554,18 @@
 					"name": "Order - Update Order Payment Id",
 					"request": {
 						"method": "PUT",
-						"header": [],
+						"header": [
+							{
+								"key": "Access-Token",
+								"value": "",
+								"type": "text"
+							},
+							{
+								"key": "User-Id",
+								"value": "cda0bb5f-7d3e-4411-ad15-00533ccd9555",
+								"type": "text"
+							}
+						],
 						"url": "http://localhost:8082/order/update-order-payment-id/08447b8f-18f2-4fab-907b-b6f3e74051e9/45ff08b5-4ebe-47f1-8ac7-fc1ce3d0b447"
 					},
 					"response": []
@@ -257,7 +574,18 @@
 					"name": "Order - Update Order Payment Id Copy",
 					"request": {
 						"method": "DELETE",
-						"header": [],
+						"header": [
+							{
+								"key": "Access-Token",
+								"value": "",
+								"type": "text"
+							},
+							{
+								"key": "User-Id",
+								"value": "cda0bb5f-7d3e-4411-ad15-00533ccd9555",
+								"type": "text"
+							}
+						],
 						"url": "http://localhost:8082/order/ad9c60f6-0f20-4806-95aa-51a8f2f05753"
 					},
 					"response": []
@@ -271,7 +599,18 @@
 					"name": "User - Create",
 					"request": {
 						"method": "POST",
-						"header": [],
+						"header": [
+							{
+								"key": "Access-Token",
+								"value": "eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJjZGEwYmI1Zi03ZDNlLTQ0MTEtYWQxNS0wMDUzM2NjZDk1NTUiLCJpYXQiOjE3MjYxNDM3NjYsImV4cCI6MTcyNjE3OTc2Nn0.3m3C6MwbO0eb3sBUsKJnDt3BaSOCIqTqgUMeQpNptRU",
+								"type": "text"
+							},
+							{
+								"key": "User-Id",
+								"value": "cda0bb5f-7d3e-4411-ad15-00533ccd955",
+								"type": "text"
+							}
+						],
 						"body": {
 							"mode": "raw",
 							"raw": "{\n    \"firstName\": \"Matheus\",\n    \"lastName\": \"Carvalho\",\n    \"email\": \"matheus.carvalho@email.com\",\n    \"login\": \"matheus\",\n    \"password\": \"1234\"\n}",
@@ -289,7 +628,18 @@
 					"name": "User - Read All",
 					"request": {
 						"method": "GET",
-						"header": [],
+						"header": [
+							{
+								"key": "Access-Token",
+								"value": "eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJjZGEwYmI1Zi03ZDNlLTQ0MTEtYWQxNS0wMDUzM2NjZDk1NTUiLCJpYXQiOjE3MjYxNjU2ODIsImV4cCI6MTcyNjIwMTY4Mn0.52H2R6WATixSrz5sV6FkDJJJ3DSxblZ-CN0t1LUp72M",
+								"type": "text"
+							},
+							{
+								"key": "User-Id",
+								"value": "cda0bb5f-7d3e-4411-ad15-00533ccd9555",
+								"type": "text"
+							}
+						],
 						"url": "http://localhost:8083/user/read-all"
 					},
 					"response": []
@@ -345,7 +695,7 @@
 			"name": "Auth",
 			"item": [
 				{
-					"name": "Auth - Login",
+					"name": "Auth - Login Admin",
 					"request": {
 						"method": "POST",
 						"header": [],
@@ -363,9 +713,30 @@
 					"response": []
 				},
 				{
-					"name": "Auth - Validate Token",
+					"name": "Auth - Login User",
 					"request": {
 						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"login\": \"maria\",\n    \"password\": \"1234\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": "http://localhost:8083/auth/login"
+					},
+					"response": []
+				},
+				{
+					"name": "Auth - Validate Token",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
 						"header": [],
 						"body": {
 							"mode": "raw",
@@ -376,7 +747,7 @@
 								}
 							}
 						},
-						"url": "http://localhost:8083/auth/validate-token/cda0bb5f-7d3e-4411-ad15-00533ccd9555/eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJjZGEwYmI1Zi03ZDNlLTQ0MTEtYWQxNS0wMDUzM2NjZDk1NTUiLCJpYXQiOjE3MjYwOTk1NDUsImV4cCI6MTcyNjEzNTU0NX0.OWUWaEItsQKzIrbHiWQBSrvVKz2w2cAEV73RybjCmVU"
+						"url": "http://localhost:8083/auth/validate-token/eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJjZGEwYmI1Zi03ZDNlLTQ0MTEtYWQxNS0wMDUzM2NjZDk1NTUiLCJpYXQiOjE3MjYxNTI2ODMsImV4cCI6MTcyNjE4ODY4M30.NNyxF23h5Ki0KZnmG7UyokFk6_Ev1o6JPBDljs-8mGk/cda0bb5f-7d3e-4411-ad15-00533ccd9555"
 					},
 					"response": []
 				}

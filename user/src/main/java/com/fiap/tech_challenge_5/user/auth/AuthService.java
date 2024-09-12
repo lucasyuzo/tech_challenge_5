@@ -2,9 +2,11 @@ package com.fiap.tech_challenge_5.user.auth;
 
 import com.fiap.tech_challenge_5.user.user.User;
 import com.fiap.tech_challenge_5.user.user.UserRepository;
+import com.fiap.tech_challenge_5.user.user.UserRole;
 import io.jsonwebtoken.Jwts;
 import io.jsonwebtoken.SignatureAlgorithm;
 import io.jsonwebtoken.security.Keys;
+import jakarta.persistence.EntityNotFoundException;
 import org.springframework.stereotype.Service;
 import java.security.Key;
 import java.util.Date;
@@ -39,13 +41,24 @@ public class AuthService {
     }
 
     public boolean validateToken(String token, UUID userId) {
-        String tokenUsername = Jwts.parser()
+        String tokenUserId = Jwts.parser()
                 .setSigningKey(key)
                 .build()
                 .parseClaimsJws(token)
                 .getBody()
                 .getSubject();
-        return (userId.toString().equals(tokenUsername) && !isTokenExpired(token));
+        return (userId.toString().equals(tokenUserId) && !isTokenExpired(token));
+    }
+
+    public boolean validateTokenForAdmin(String token, UUID userId) {
+        User user = userRepository.findById(userId).orElseThrow(EntityNotFoundException::new);
+        String tokenUserId = Jwts.parser()
+                .setSigningKey(key)
+                .build()
+                .parseClaimsJws(token)
+                .getBody()
+                .getSubject();
+        return (userId.toString().equals(tokenUserId) && !isTokenExpired(token) && user.getRole().equals(UserRole.ADMIN));
     }
 
     private boolean isTokenExpired(String token) {
