@@ -1,4 +1,4 @@
-package com.fiap.tech_challenge_5.user;
+package com.fiap.tech_challenge_5.user.user;
 
 import jakarta.persistence.*;
 
@@ -11,25 +11,24 @@ public class User {
     @Id
     @GeneratedValue(strategy = GenerationType.UUID)
     private UUID id;
-
     private String firstName;
-
     private String lastName;
-
     private String email;
-
     private String login;
-
     private String password;
+    @Enumerated(EnumType.STRING)
+    private UserRole role;
 
     public User() { }
 
-    public User(UUID id, String firstName, String lastName, String email, String password) {
+    public User(UUID id, String firstName, String lastName, String email, String login, String password, UserRole role) {
         this.id = id;
         this.firstName = firstName;
         this.lastName = lastName;
         this.email = email;
+        this.login = login;
         this.password = password;
+        this.role = role;
     }
 
     public UUID getId() {
@@ -78,6 +77,14 @@ public class User {
 
     public void setPassword(String password) {
         this.password = password;
+    }
+
+    public UserRole getRole() {
+        return role;
+    }
+
+    public void setRole(UserRole role) {
+        this.role = role;
     }
 
 }
