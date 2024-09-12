@@ -1,4 +1,4 @@
-package com.fiap.tech_challenge_5.user;
+package com.fiap.tech_challenge_5.user.user;
 
 import jakarta.persistence.EntityNotFoundException;
 import org.springframework.stereotype.Service;

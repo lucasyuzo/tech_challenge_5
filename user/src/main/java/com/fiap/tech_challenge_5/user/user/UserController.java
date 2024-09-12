@@ -1,4 +1,4 @@
-package com.fiap.tech_challenge_5.user;
+package com.fiap.tech_challenge_5.user.user;
 
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
